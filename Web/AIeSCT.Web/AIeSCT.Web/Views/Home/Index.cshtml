@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+    <div class="col-md-12 vcenter" style="padding-top:150px">
+       @using (Html.BeginForm("Results", "Search", new
+       {
+           ReturnUrl = ViewBag.ReturnUrl
+       }, FormMethod.Post, new
+       {
+           role = "form",
+           Id = "login-Form"
+       }))
+       {
+        <div class="form-group" style="padding-top:5px">
+            @Html.TextBox("searchText","",new { @class="form-control",@placeholder="What you want to do in Trivandrum?", @style=""})
+            
+            </div>
+
+            <div style="text-align:center">
+
+                <input type="submit" value="Search" class="btn-default btn btn-primary formButtons" />
+                </div>
+                }
+
+            </div>
+

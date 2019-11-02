@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mvvm="clr-namespace:AIeSCT.Mobile;assembly=AIeSCT.Mobile"
+               BindingContext="{Binding Source={x:Static mvvm:App.Locator}, Path=List}"
+             x:Class="AIeSCT.Mobile.ListingPage">
+  <ListView x:Name="SupplyLevels"   ItemsSource="{Binding Coll}" >
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <StackLayout Orientation="Vertical" >
+           
+              <Label Text="{Binding Name}" Font="15,Bold" />
+              <Label Text="{Binding PredictionPerc}" Font="15,Bold" />
+           
+
+            <Label Text="{Binding AvialableText}" BackgroundColor="Green" />
+          </StackLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
+ 
+</ContentPage>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AIeSCT.Mobile"
+              xmlns:mvvm="clr-namespace:AIeSCT.Mobile;assembly=AIeSCT.Mobile"
+               BindingContext="{Binding Source={x:Static mvvm:App.Locator}, Path=Main}"
+             x:Class="AIeSCT.Mobile.MainPage">
+  <StackLayout VerticalOptions="Center"  Orientation="Vertical">
+    
+
+
+  <Entry Placeholder="What you want to do in Trivandrum?"  Text="{Binding SearchText, Mode=TwoWay}"></Entry>
+  <Button Text="Login" Command="{Binding SearchClick}"></Button>
+
+  </StackLayout>
+</ContentPage>

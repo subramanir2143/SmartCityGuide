@@ -1,0 +1,10 @@
+﻿body {
+}
+
+.Available, .Available:active, .Available:hover, .Available:focus{
+    background-color: green;    
+}
+
+.NotAvailable, .NotAvailable:active, .NotAvailable:hover, .NotAvailable:focus{
+    background-color: orangered;        
+}

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<AIeSCT.Web.Models.IdealResultClass>
+
+@{
+    ViewBag.Title = "Admin";
+}
+
+<h2>Admin</h2>
+
+    @foreach (var item in Model)
+    {
+        <input type="button" id=@item.Id value=@item.Name onclick="Toggle(this)" data-assigned-id=@item.Id data-assigned-availability="@item.Availability" data-assigned-name="@item.Name"
+        @{ if (item.Availability)
+            {
+                @: class="Available btn btn-default"
+            }
+            else
+            { 
+                @: class="NotAvailable btn btn-default"
+            } 
+         } />
+    }
+
+
+
+
+<script>
+    function Toggle(e) {
+        debugger;
+        var id = $(e).data('assigned-id');
+        var name = $(e).data('assigned-name');
+        var availability = $(e).data('assigned-availability');
+
+        $.ajax({
+            url: "http://aiesctapi20170113083032.azurewebsites.net/api/Parking/"+id,
+            type: "POST",
+            crossDomain: true,
+            contentType: "application/json; charset=utf-8",
+        dataType: "jsonp",
+        success: function () {
+            debugger;
+        }
+    });
+        $.ajax({
+            url: "@Url.Action("ClientCall","Home")",
+            type: "GET",
+            data: { "id": id, "availability": availability },
+            dataType: "JSON",
+            success: function () {
+                debugger;
+                if (availability == "True") {
+                    $(e).data('assigned-availability', "False");
+                    $("#" + id).removeClass("Available");
+                    $("#" + id).addClass("NotAvailable");
+                }
+                else {
+                    $(e).data('assigned-availability', "True");
+                    $("#" + id).removeClass("NotAvailable");
+                    $("#" + id).addClass("Available");
+                }
+            }
+        });
+
+
+    }
+</script>
+
